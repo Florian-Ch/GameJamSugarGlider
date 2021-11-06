@@ -22,9 +22,12 @@ function game.load()
 end
 
 function game.draw()
-    sugar_glider.draw()
     for i=0, number_of_walls - 1 do
         wall:draw(walls[i], walls_opening_height[i])
+    end
+    sugar_glider.draw()
+    for i=0, number_of_walls - 1 do
+        wall:draw_foreground(walls[i], walls_opening_height[i])
     end
 end
 

@@ -2,8 +2,9 @@ local game = {}
 local sugar_glider = require("sugar_glider")
 local wall = require("wall")
 local walls = {}
-local distance_between_walls = 500
-local number_of_walls = 15
+local distance_between_walls = 750
+local number_of_walls = 8
+local walls_vertical_speed = 100
 local walls_opening_height = {}
 
 wall_x_scale_factor = 2
@@ -12,6 +13,7 @@ function game.load()
     sugar_glider.load()
 
     for i=0, number_of_walls - 1 do
+        -- walls[i] = wall:create(love.graphics.getWidth() + i * distance_between_walls)
         walls[i] = wall:create(love.graphics.getWidth() + i * distance_between_walls)
         math.randomseed(os.time()-i)
         walls_opening_height[i] = math.random(0, love.graphics.getHeight() - texture_opening:getHeight())
@@ -36,11 +38,28 @@ function game.update(dt)
                 walls[j-1] = walls[j]
                 walls_opening_height[j-1] = walls_opening_height[j]
             end
-            local new_wall = wall:create(walls[number_of_walls - 2].x + distance_between_walls)
-            walls[number_of_walls - 1] = new_wall
             math.randomseed(os.time())
+            local new_wall = wall:create(walls[number_of_walls - 2].x + math.random(500, 750))
+            walls[number_of_walls - 1] = new_wall
             walls_opening_height[number_of_walls - 1] = math.random(0, love.graphics.getHeight() - texture_opening:getHeight() / 2)
         end
+    end
+
+    -- if love.keyboard.isDown('z') or love.keyboard.isDown('up') then
+    --     for i=0, number_of_walls - 1 do
+    --         walls[i].top.y = walls[i].top.y - walls_vertical_speed * dt
+    --         walls_opening_height[i] = walls_opening_height[i] - walls_vertical_speed * dt
+    --     end
+    -- end
+    -- if love.keyboard.isDown('s') or love.keyboard.isDown('down') then
+    --     for i=0, number_of_walls - 1 do
+    --         walls[i].top.y = walls[i].top.y + walls_vertical_speed * dt
+    --         walls_opening_height[i] = walls_opening_height[i] + walls_vertical_speed * dt
+    --     end
+    -- end
+
+    if love.keyboard.isDown('escape') then
+        love.event.quit()
     end
 end
 

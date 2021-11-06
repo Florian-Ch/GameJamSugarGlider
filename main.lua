@@ -7,7 +7,6 @@ function love.load()
     game.load()
 end
 
-
 function love.draw()
     if menu.start_menu() then
         game.draw()

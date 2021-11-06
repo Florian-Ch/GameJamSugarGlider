@@ -1,5 +1,5 @@
 local wall = {}
-local base_speed = 200
+local base_speed = 700
 local texture_wall = love.graphics.newImage('textures/Mur_test.png')
 local top = {}
 local opening = {}
@@ -17,7 +17,7 @@ function wall:create(x)
 
     opening.img = texture_opening
     math.randomseed(os.time())
-    opening.y = math.random(0, love.graphics.getHeight() - opening.img:getHeight() / 2)
+    -- opening.y = math.random(0, love.graphics.getHeight() - opening.img:getHeight() / 2)
 
     bottom.img = texture_wall
     -- bottom.y = opening.y + opening.img:getHeight()

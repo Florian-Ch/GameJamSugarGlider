@@ -9,7 +9,7 @@ function game.load()
     sugar_glider.load()
 
     for i=0, number_of_walls - 1 do
-        wall = {}
+        local wall = {}
         wall.img = love.graphics.newImage('textures/Arche_test.png')
         wall.x = love.graphics.getWidth() + i * distance_between_walls
         wall.y = (love.graphics.getHeight() / 2) - (wall.img:getHeight() / 2)
@@ -36,7 +36,7 @@ function game.update(dt)
                 walls[j-1] = walls[j]
             end
 
-            wall = {}
+            local wall = {}
             wall.x = walls[number_of_walls - 2].x + distance_between_walls
             wall.y = 0
             wall.speed = wall_base_speed

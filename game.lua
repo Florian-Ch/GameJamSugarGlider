@@ -43,6 +43,13 @@ function game.update(dt)
             walls[number_of_walls - 1] = new_wall
             walls_opening_height[number_of_walls - 1] = math.random(0, love.graphics.getHeight() - texture_opening:getHeight() / 2)
         end
+
+        -- collisions
+        if (sugar_glider.y > walls[i].x and sugar_glider.x < walls[i].x + texture_opening:getWidth()) or (sugar_glider.x + sugar_glider.img:getWidth() * 5 > walls[i].x and sugar_glider.x + sugar_glider.img:getWidth() * 5 < walls[i].x + texture_opening:getWidth()) then
+            if sugar_glider.y < walls_opening_height[i] or sugar_glider.y > walls_opening_height[i] + texture_opening:getHeight() then
+                love.event.quit()
+            end
+        end
     end
 
     -- if love.keyboard.isDown('z') or love.keyboard.isDown('up') then

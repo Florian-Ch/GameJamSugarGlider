@@ -7,7 +7,6 @@ function love.load()
     game.load()
 end
 
-
 function love.draw()
     if menu.start_menu() then
         game.draw()
@@ -15,5 +14,7 @@ function love.draw()
 end
 
 function love.update(dt)
-    game.update(dt)
+    if menu.start_menu() then
+        game.update(dt)
+    end
 end

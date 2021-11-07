@@ -59,7 +59,7 @@ function game.update(dt)
         end
 
         -- collisions
-        if (sugar_glider.x < walls[i].x + texture_opening:getWidth() / 2) and (walls[i].x + texture_opening:getWidth() / 2 < sugar_glider.x + sugar_glider.img:getWidth() * 5) then
+        if (sugar_glider.x < walls[i].x + texture_opening:getWidth() / 2) and (walls[i].x + texture_opening:getWidth() / 2 < sugar_glider.x + sugar_glider.img:getWidth() * sugar_glider_texture_scale * 3 / 4) then
             if sugar_glider.y < walls_opening_height[i] or sugar_glider.y > walls_opening_height[i] + texture_opening:getHeight() then
                 final_score = score
                 state = "end"

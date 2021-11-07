@@ -3,8 +3,10 @@ local suit = require 'libraries.suit'
 center_x = love.graphics.getWidth() / 2
 center_y = love.graphics.getHeight() / 2
 love.window.setMode(0,0)
+local design = require("design")
 
 function menus.start_menu()
+  design.menu()
   local font = love.graphics.newFont("fonts/QuantumProfit.ttf", 20)
   love.graphics.setFont(font)
   -- love.window.setFullscreen(true)

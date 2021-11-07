@@ -2,10 +2,9 @@ local game = require("game")
 local menu = require("menus")
 love.window.setMode(0,0)
 volume = 0.7
-start_source = love.audio.newSource("music/ambuscade.mp3", "static")
-game_source = love.audio.newSource("music/up_your_street.mp3", "static")
-end_source = love.audio.newSource("music/game_over.mp3", "stream")
-end_source:setLooping(false)
+local start_source = love.audio.newSource("music/ambuscade.mp3", "stream")
+local game_source = love.audio.newSource("music/up_your_street.mp3", "stream")
+end_source = love.audio.newSource("music/game_over.wav", "stream")
 state = "start"
 
 function love.load()
@@ -17,6 +16,7 @@ function love.draw()
       love.audio.play(start_source)
       menu.start_menu()
     elseif state == "game" then
+      once = true
       love.audio.stop(start_source)
       love.audio.stop(end_source)
       love.audio.play(game_source)
@@ -24,8 +24,11 @@ function love.draw()
     elseif state == "pause" then
       menu.pause_menu(score)
     elseif state == "end" then
-      love.audio.stop(game_source)
-      love.audio.play(end_source)
+      if once then
+        love.audio.stop(game_source)
+        love.audio.play(end_source)
+        once = false
+      end
       menu.end_menu(final_score)
       game.load()
     end

@@ -1,6 +1,6 @@
 local wall = {}
 local base_speed = 700
-local texture_wall = love.graphics.newImage('textures/Wall.png')
+local texture_wall = love.graphics.newImage('textures/Mur_test.png')
 local texture_foreground = love.graphics.newImage('textures/Arche_1erplan_test.png')
 local top = {}
 local opening = {}

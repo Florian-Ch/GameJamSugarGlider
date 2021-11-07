@@ -34,10 +34,10 @@ light[3] = 1
 
 function design.menu()
     choose_color = dark
-    background_game = love.graphics.newImage('textures/background_blur.jpg')
-    for i = 0, love.graphics.getWidth() / background_game:getWidth() do
-        for j = 0, love.graphics.getHeight() / background_game:getHeight() do
-            love.graphics.draw(background_game, i * background_game:getWidth(), j * background_game:getHeight() )
+    background_menu = love.graphics.newImage('textures/background_blur.jpg')
+    for i = 0, width / background_menu:getWidth() do
+        for j = 0, height / background_menu:getHeight() do
+            love.graphics.draw(background_menu, i * background_menu:getWidth(), j * background_menu:getHeight() )
         end
     end
     
@@ -45,7 +45,12 @@ end
 
 function design.game()
     choose_bck_color = dark
-    background_menu = love.graphics.setBackgroundColor( choose_bck_color[0], choose_bck_color[1], choose_bck_color[2], choose_bck_color[3] )
+    background_game = love.graphics.newImage('textures/tentative.jpg')
+    for i = 0, width / background_game:getWidth() do
+        for j = 0, height / background_game:getHeight() do
+            love.graphics.draw(background_game, i * background_game:getWidth(), j * background_game:getHeight() )
+        end
+    end
 end
 
 return design

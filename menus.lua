@@ -4,20 +4,16 @@ width, height = love.window.getDesktopDimensions()
 love.window.setMode(0,0)
 local font = love.graphics.newFont("fonts/upheavtt.ttf", 20)
 local name_font = love.graphics.newFont("fonts/QuantumProfit.ttf", 60)
-local title_font = love.graphics.newFont("fonts/Upheavtt.ttf", 60)
-local phrase_font = love.graphics.newFont("fonts/Upheavtt.ttf", 40)
+local title_font = love.graphics.newFont("fonts/upheavtt.ttf", 60)
+local phrase_font = love.graphics.newFont("fonts/upheavtt.ttf", 40)
 love.graphics.setFont(font)
+
 local design = require("design")
 
 function menus.start_menu()
   design.menu()
   local font = love.graphics.newFont("fonts/QuantumProfit.ttf", 20)
   love.graphics.setFont(font)
-  -- love.window.setFullscreen(true)
-  -- love.window.setMode(1920,1200)
-
-  -- j'sais pas pourquoi ça crée des crises d'épilepsie, j'voulais juste mettre en plein écran
-  -- love.window.setMode(0,0)
 
   -- put the layout origin at position (100,100)
   -- the layout will grow down and to the right from this point
@@ -94,12 +90,6 @@ function menus.end_menu(score)
 end
 
 function menus.pause_menu(score)
-  -- love.window.setFullscreen(true)
-  -- love.window.setMode(1920,1200)
-
-  -- j'sais pas pourquoi ça crée des crises d'épilepsie, j'voulais juste mettre en plein écran
-  -- love.window.setMode(0,0)
-
   -- put the layout origin at position (100,100)
   -- the layout will grow down and to the right from this point
   suit.layout:reset(width/2-400, height/2-90)
@@ -111,8 +101,19 @@ function menus.pause_menu(score)
   suit.Label("Keep going ! ", {align = "center", font = title_font}, suit.layout:row(800,30))
   suit.Label("You made it this far already !", {align = "center", font = phrase_font}, suit.layout:row(800,30))
 
+
   -- put an empty cell that has the same size as the last cell (200x30 px)
   suit.layout:row()
+
+  suit.Label(score, {align = "center", font = name_font}, suit.layout:row(800,30))
+
+  -- put an empty cell that has the same size as the last cell (200x30 px)
+  suit.layout:row()
+  suit.layout:row(300,30)
+  if suit.Button("Resume", suit.layout:col(200,30)).hit then
+      state = "game"
+  end
+
 
   suit.Label(score, {align = "center", font = name_font}, suit.layout:row(800,30))
 

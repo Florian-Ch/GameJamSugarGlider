@@ -4,16 +4,11 @@ width, height = love.window.getDesktopDimensions()
 love.window.setMode(0,0)
   local font = love.graphics.newFont("fonts/upheavtt.ttf", 20)
   local name_font = love.graphics.newFont("fonts/QuantumProfit.ttf", 60)
-  local title_font = love.graphics.newFont("fonts/Upheavtt.ttf", 60)
-  local phrase_font = love.graphics.newFont("fonts/Upheavtt.ttf", 40)
+  local title_font = love.graphics.newFont("fonts/upheavtt.ttf", 60)
+  local phrase_font = love.graphics.newFont("fonts/upheavtt.ttf", 40)
   love.graphics.setFont(font)
 
 function menus.start_menu()
-  -- love.window.setFullscreen(true)
-  -- love.window.setMode(1920,1200)
-
-  -- j'sais pas pourquoi ça crée des crises d'épilepsie, j'voulais juste mettre en plein écran
-  -- love.window.setMode(0,0)
 
   -- put the layout origin at position (100,100)
   -- the layout will grow down and to the right from this point
@@ -50,11 +45,6 @@ function menus.start_menu()
 end
 
 function menus.end_menu(score)
-  -- love.window.setFullscreen(true)
-  -- love.window.setMode(1920,1200)
-
-  -- j'sais pas pourquoi ça crée des crises d'épilepsie, j'voulais juste mettre en plein écran
-  -- love.window.setMode(0,0)
 
   -- put the layout origin at position (100,100)
   -- the layout will grow down and to the right from this point
@@ -90,11 +80,6 @@ function menus.end_menu(score)
 end
 
 function menus.pause_menu(score)
-  -- love.window.setFullscreen(true)
-  -- love.window.setMode(1920,1200)
-
-  -- j'sais pas pourquoi ça crée des crises d'épilepsie, j'voulais juste mettre en plein écran
-  -- love.window.setMode(0,0)
 
   -- put the layout origin at position (100,100)
   -- the layout will grow down and to the right from this point

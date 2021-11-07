@@ -4,7 +4,7 @@ love.window.setMode(0,0)
 volume = 0.7
 start_source = love.audio.newSource("music/ambuscade.mp3", "static")
 game_source = love.audio.newSource("music/up_your_street.mp3", "static")
-end_source = love.audio.newSource("music/game_over.wav", "stream")
+end_source = love.audio.newSource("music/game_over.mp3", "stream")
 end_source:setLooping(false)
 state = "start"
 

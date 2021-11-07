@@ -6,11 +6,13 @@ local distance_between_walls = 750
 local number_of_walls = 8
 local walls_vertical_speed = 100
 local walls_opening_height = {}
+local design = require("design")
 
 wall_x_scale_factor = 2
 
 function game.load()
     sugar_glider.load()
+
 
     for i=0, number_of_walls - 1 do
         -- walls[i] = wall:create(love.graphics.getWidth() + i * distance_between_walls)
@@ -22,6 +24,7 @@ function game.load()
 end
 
 function game.draw()
+    design.game()
     for i=0, number_of_walls - 1 do
         wall:draw(walls[i], walls_opening_height[i])
     end

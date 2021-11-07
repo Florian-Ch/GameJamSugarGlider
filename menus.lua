@@ -3,8 +3,10 @@ local suit = require 'libraries.suit'
 center_x = love.graphics.getWidth() / 2
 center_y = love.graphics.getHeight() / 2
 love.window.setMode(0,0)
+local design = require("design")
 
 function menus.start_menu()
+  design.menu()
   local font = love.graphics.newFont("fonts/QuantumProfit.ttf", 20)
   love.graphics.setFont(font)
   -- love.window.setFullscreen(true)
@@ -20,8 +22,7 @@ function menus.start_menu()
   -- put a label that displays the text below the first cell
   -- the cell size is the same as the last one (200x30 px)
   -- the label text will be aligned to the left
-  suit.Label("Welcome, to Sugar Glider ! ", {align = "center"}, suit.layout:row(200,30))
-
+  suit.Label("Welcome, to Sugar Glider ! ", {align = "center"} , suit.layout:row(200,30))
   -- put an empty cell that has the same size as the last cell (200x30 px)
   suit.layout:row()
 

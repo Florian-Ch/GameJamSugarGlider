@@ -1,6 +1,6 @@
 local sugar_glider = {}
 local speed = 500
-local texture = love.graphics.newImage('textures/Sugardaddy_test.png')
+local texture = love.graphics.newImage('textures/Sugar_Glider.png')
 
 function sugar_glider.load()
     sugar_glider.img = texture

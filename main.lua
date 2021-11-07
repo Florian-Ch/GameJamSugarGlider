@@ -1,6 +1,5 @@
 local game = require("game")
 local menu = require("menus")
--- love.window.setFullscreen(true)
 love.window.setMode(0,0)
 start_source = love.audio.newSource("music/ambuscade.mp3", "static")
 game_source = love.audio.newSource("music/up_your_street.mp3", "static")

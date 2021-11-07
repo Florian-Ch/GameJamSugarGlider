@@ -48,6 +48,7 @@ function menus.start_menu()
 end
 
 function menus.end_menu(score)
+    design.menu()
   -- love.window.setFullscreen(true)
   -- love.window.setMode(1920,1200)
 
@@ -88,6 +89,7 @@ function menus.end_menu(score)
 end
 
 function menus.pause_menu(score)
+    design.menu()
   -- put the layout origin at position (100,100)
   -- the layout will grow down and to the right from this point
   suit.layout:reset(width/2-400, height/2-90)

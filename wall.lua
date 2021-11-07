@@ -1,13 +1,13 @@
 local wall = {}
-local base_speed = 700
-local texture_wall = love.graphics.newImage('textures/Mur_test.png')
-local texture_foreground = love.graphics.newImage('textures/Arche_1erplan_test.png')
+local base_speed = 200
+local texture_wall = love.graphics.newImage('textures/Wall_Tall.png')
+local texture_foreground = love.graphics.newImage('textures/Arch_front.png')
 local top = {}
 local opening = {}
 local foreground = {}
 local bottom = {}
 
-texture_opening = love.graphics.newImage('textures/Arche_test.png')
+texture_opening = love.graphics.newImage('textures/Arch_back.png')
 
 function wall:create(x)
     local new_wall = {}
@@ -35,10 +35,10 @@ function wall:create(x)
 end
 
 function wall:draw(wall_to_draw, y_opening)
-    local y_scale_factor = y_opening / wall_to_draw.top.img:getHeight() + 0.1
-    love.graphics.draw(wall_to_draw.top.img, wall_to_draw.x, wall_to_draw.top.y, 0, wall_x_scale_factor, y_scale_factor)
+    local y_scale_factor = y_opening / wall_to_draw.top.img:getHeight() - 0.1
+    love.graphics.draw(wall_to_draw.top.img, wall_to_draw.x, y_opening - wall_to_draw.top.img:getHeight() *2 - 60, 0, wall_x_scale_factor)
     love.graphics.draw(wall_to_draw.opening.img, wall_to_draw.x, y_opening - wall_to_draw.opening.img:getHeight() / 2, 0, wall_x_scale_factor)
-    love.graphics.draw(wall_to_draw.bottom.img, wall_to_draw.x, y_opening + opening.img:getHeight(), 0, wall_x_scale_factor, 10)
+    love.graphics.draw(wall_to_draw.bottom.img, wall_to_draw.x, y_opening + opening.img:getHeight() + 50, 0, wall_x_scale_factor)
 end
 
 function wall:draw_foreground(wall_to_draw, y_opening)

@@ -2,13 +2,17 @@ local menus = {}
 local suit = require 'libraries.suit'
 width, height = love.window.getDesktopDimensions()
 love.window.setMode(0,0)
-  local font = love.graphics.newFont("fonts/upheavtt.ttf", 20)
-  local name_font = love.graphics.newFont("fonts/QuantumProfit.ttf", 60)
-  local title_font = love.graphics.newFont("fonts/Upheavtt.ttf", 60)
-  local phrase_font = love.graphics.newFont("fonts/Upheavtt.ttf", 40)
-  love.graphics.setFont(font)
+local font = love.graphics.newFont("fonts/upheavtt.ttf", 20)
+local name_font = love.graphics.newFont("fonts/QuantumProfit.ttf", 60)
+local title_font = love.graphics.newFont("fonts/Upheavtt.ttf", 60)
+local phrase_font = love.graphics.newFont("fonts/Upheavtt.ttf", 40)
+love.graphics.setFont(font)
+local design = require("design")
 
 function menus.start_menu()
+  design.menu()
+  local font = love.graphics.newFont("fonts/QuantumProfit.ttf", 20)
+  love.graphics.setFont(font)
   -- love.window.setFullscreen(true)
   -- love.window.setMode(1920,1200)
 

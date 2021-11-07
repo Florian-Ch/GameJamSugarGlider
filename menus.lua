@@ -33,7 +33,7 @@ function menus.start_menu()
   -- put an empty cell that has the same size as the last cell (200x30 px)
   suit.layout:row()
   suit.layout:row(100,30)
-  if suit.Button("Start Game", suit.layout:col(200,30)).hit then
+  if suit.Button("Start Game", {align = "center", font = font}, suit.layout:col(200,30)).hit then
       state = "game"
   end
 
@@ -41,7 +41,7 @@ function menus.start_menu()
   -- suit.layout:row()
   -- put a button of size 200x30 px in the cell below
   -- if the button is pressed, quit the game
-  if suit.Button("Quit Game", suit.layout:row()).hit then
+  if suit.Button("Quit Game", {align = "center", font = font}, suit.layout:row()).hit then
       love.event.quit()
   end
 
@@ -75,13 +75,13 @@ function menus.end_menu(score)
   -- put an empty cell that has the same size as the last cell (200x30 px)
   suit.layout:row()
   suit.layout:row(300,30)
-  if suit.Button("Try Again", suit.layout:col(200,30)).hit then
+  if suit.Button("Try Again", {align = "center", font = font}, suit.layout:col(200,30)).hit then
       state = "game"
   end
 
   -- put a button of size 200x30 px in the cell below
   -- if the button is pressed, quit the game
-  if suit.Button("Quit Game", suit.layout:row()).hit then
+  if suit.Button("Quit Game", {align = "center", font = font}, suit.layout:row()).hit then
       love.event.quit()
   end
 
@@ -110,25 +110,20 @@ function menus.pause_menu(score)
   -- put an empty cell that has the same size as the last cell (200x30 px)
   suit.layout:row()
   suit.layout:row(300,30)
-  if suit.Button("Resume", suit.layout:col(200,30)).hit then
+  if suit.Button("Resume", {align = "center", font = font}, suit.layout:col(200,30)).hit then
       state = "game"
   end
 
-
-  suit.Label(score, {align = "center", font = name_font}, suit.layout:row(800,30))
-
-  -- put an empty cell that has the same size as the last cell (200x30 px)
-  suit.layout:row()
-  suit.layout:row(300,30)
-  if suit.Button("Resume", suit.layout:col(200,30)).hit then
-      state = "game"
-  end
-
-
-  -- put a button of size 200x30 px in the cell below
-  -- if the button is pressed, quit the game
-  if suit.Button("Quit Game", suit.layout:row()).hit then
+  if suit.Button("Quit Game", {align = "center", font = font}, suit.layout:row(200,30)).hit then
       love.event.quit()
+  end
+
+  if suit.Button("Vol. +", {align = "center", font = font}, suit.layout:row(95,30)).hit then
+    volume = volume + 0.1
+  end
+
+  if suit.Button("Vol. -", {align = "center", font = font}, suit.layout:col(95,30)).hit then
+    volume = volume - 0.1
   end
 
   suit.draw()
